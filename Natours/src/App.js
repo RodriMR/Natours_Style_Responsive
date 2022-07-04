@@ -1,8 +1,8 @@
 import "./sass/main.scss";
-import logoWhite from "./Natours/after-S05/img/logo-white.png";
+import logoWhite from "./img/logo-white.png";
 function App() {
   return (
-    <div>
+    <>
       <header className="header">
         <div className="header__logo-box">
           <img src={logoWhite} alt="Logo" className="header__logo" />
@@ -17,7 +17,50 @@ function App() {
           </a>
         </div>
       </header>
-    </div>
+      <main>
+        <section className="section-about">
+          <div className="u-center-text">
+            <h2 className="heading-secondary">
+              Exciting tour for adventorous people
+            </h2>
+          </div>
+          <div className="row">
+            <div className="col-1-of-2">Text content</div>
+            <div className="col-1-of-2">Image Composition</div>
+          </div>
+        </section>
+      </main>
+      {/* <section className="grid-test">
+        <div className="row">
+          <div className="col-1-of-2">Col 1 of 2</div>
+          <div className="col-1-of-2">Col 1 of 2</div>
+        </div>
+        <div className="row">
+          <div className="col-1-of-3">Col 1 of 3</div>
+          <div className="col-1-of-3">Col 1 of 3</div>
+          <div className="col-1-of-3">Col 1 of 3</div>
+        </div>
+        <div className="row">
+          <div className="col-1-of-3">Col 1 of 3</div>
+          <div className="col-2-of-3">Col 2 of 3</div>
+        </div>
+        <div className="row">
+          <div className="col-1-of-4">Col 1 of 4</div>
+          <div className="col-1-of-4">Col 1 of 4</div>
+          <div className="col-1-of-4">Col 1 of 4</div>
+          <div className="col-1-of-4">Col 1 of 4</div>
+        </div>
+        <div className="row">
+          <div className="col-1-of-4">Col 1 of 4</div>
+          <div className="col-1-of-4">Col 1 of 4</div>
+          <div className="col-2-of-4">Col 2 of 4</div>
+        </div>
+        <div className="row">
+          <div className="col-1-of-4">Col 1 of 4</div>
+          <div className="col-3-of-4">Col 3 of 4</div>
+        </div>
+      </section> */}
+    </>
   );
 }
 
