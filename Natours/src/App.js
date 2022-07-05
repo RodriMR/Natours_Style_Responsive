@@ -1,5 +1,6 @@
 import "./sass/main.scss";
 import logoWhite from "./img/logo-white.png";
+
 function App() {
   return (
     <>
@@ -19,14 +20,53 @@ function App() {
       </header>
       <main>
         <section className="section-about">
-          <div className="u-center-text">
+          <div className="u-center-text u-margin-bottom-big">
             <h2 className="heading-secondary">
               Exciting tour for adventorous people
             </h2>
           </div>
           <div className="row">
-            <div className="col-1-of-2">Text content</div>
-            <div className="col-1-of-2">Image Composition</div>
+            <div className="col-1-of-2">
+              <h3 className="heading-tertiary u-margin-bottom-small">
+                You're going to fall in love with nature
+              </h3>
+              <p className="paragraph">
+                Aut pariatur quas eum sint molestiae eos iste nemo. Et quas
+                quisquam a voluptate tempore quo modi nihil aut autem provident
+                et expedita quam et minima dolor et rerum porro?
+              </p>
+              <h3 className="heading-tertiary u-margin-bottom-small">
+                Live adventures like you never have before
+              </h3>
+              <p className="paragraph">
+                Et eius vero eum velit quae aut voluptatem quaerat. Eos atque
+                quia aut ipsum assumenda ut reiciendis accusantium non nihil
+                autem est quibusdam odio non repellat officia. Est dolor
+                maiores.
+              </p>
+              <a href="#" className="btn-text">
+                Learn more &rarr;
+              </a>
+            </div>
+            <div className="col-1-of-2">
+              <div className="composition">
+                <img
+                  src={require("./img/nat-1-large.jpg")}
+                  alt="Photo 1"
+                  className="composition__photo composition__photo--p1"
+                />
+                <img
+                  src={require("./img/nat-2-large.jpg")}
+                  alt="Photo 2"
+                  className="composition__photo composition__photo--p2"
+                />
+                <img
+                  src={require("./img/nat-3-large.jpg")}
+                  alt="Photo 3"
+                  className="composition__photo composition__photo--p3"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>
