@@ -230,6 +230,66 @@ function App() {
             </a>
           </div>
         </section>
+        <section className="section-stories">
+          <div className="u-center-text u-margin-bottom-big">
+            <h2 className="heading-secondary">
+              We make people genuinely happy
+            </h2>
+          </div>
+          <div className="row">
+            <div className="story">
+              <figure className="story__shape">
+                <img
+                  className="story__image"
+                  src={require("../src/img/nat-8.jpg")}
+                  alt=""
+                />
+                <figcaption className="story__caption">Mary Smith</figcaption>
+              </figure>
+              <div className="story__text">
+                <h3 className="heading-tertiary u-margin-bottom-small">
+                  I had the best week ever with my family
+                </h3>
+                <p>
+                  Ea consectetur hic magni aspernatur id adipisci repellat est
+                  quidem laboriosam? Est consequatur tempora ut maiores quia et
+                  itaque debitis aut consectetur recusandae et soluta porro ex
+                  reprehenderit dolorum. Et rerum odit aut dolores excepturi eos
+                  nisi quam.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="story">
+              <figure className="story__shape">
+                <img
+                  className="story__image"
+                  src={require("../src/img/nat-9.jpg")}
+                  alt=""
+                />
+                <figcaption className="story__caption">Jack Wilson</figcaption>
+              </figure>
+              <div className="story__text">
+                <h3 className="heading-tertiary u-margin-bottom-small">
+                  WOW! My life is completely different now
+                </h3>
+                <p>
+                  Ea consectetur hic magni aspernatur id adipisci repellat est
+                  quidem laboriosam? Est consequatur tempora ut maiores quia et
+                  itaque debitis aut consectetur recusandae et soluta porro ex
+                  reprehenderit dolorum. Et rerum odit aut dolores excepturi eos
+                  nisi quam.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="u-center-text u-margin-top-huge">
+            <a href="" className="btn-text">
+              Read all stories &rarr;
+            </a>
+          </div>
+        </section>
       </main>
       {/* <section className="grid-test">
         <div className="row">
