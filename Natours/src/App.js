@@ -231,6 +231,21 @@ function App() {
           </div>
         </section>
         <section className="section-stories">
+          <div className="bg-video">
+            <video
+              className="bg-video__content"
+              autoPlay="true"
+              muted="true"
+              loop
+            >
+              <source src={require("../src/img/video.mp4")} type="video/mp4" />
+              <source
+                src={require("../src/img/video.webm")}
+                type="video/webm"
+              />
+              Your browser is not supported!
+            </video>
+          </div>
           <div className="u-center-text u-margin-bottom-big">
             <h2 className="heading-secondary">
               We make people genuinely happy
