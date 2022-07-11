@@ -60,7 +60,7 @@ function App() {
             <span className="heading-primary--main">Outdoors</span>
             <span className="heading-primary--sub"> is where life happens</span>
           </h1>
-          <a href="#" className="btn btn--white btn--animated">
+          <a href="#section-tours" className="btn btn--white btn--animated">
             Discover our tours
           </a>
         </div>
@@ -168,7 +168,7 @@ function App() {
             </div>
           </div>
         </section>
-        <section className="section-tours">
+        <section className="section-tours" id="section-tours">
           <div className="u-center-text u-margin-bottom-big">
             <h2 className="heading-secondary">Most popular tours</h2>
           </div>
@@ -198,7 +198,7 @@ function App() {
                       <p className="card__price-only">Only</p>
                       <p className="card__price-value">$297</p>
                     </div>
-                    <a href="" className="btn btn--white">
+                    <a href="#popup" className="btn btn--white">
                       Book now!
                     </a>
                   </div>
@@ -230,7 +230,7 @@ function App() {
                       <p className="card__price-only">Only</p>
                       <p className="card__price-value">$297</p>
                     </div>
-                    <a href="" className="btn btn--white">
+                    <a href="#popup" className="btn btn--white">
                       Book now!
                     </a>
                   </div>
@@ -262,7 +262,7 @@ function App() {
                       <p className="card__price-only">Only</p>
                       <p className="card__price-value">$297</p>
                     </div>
-                    <a href="" className="btn btn--white">
+                    <a href="#popup" className="btn btn--white">
                       Book now!
                     </a>
                   </div>
@@ -476,6 +476,56 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <div className="popup" id="popup">
+        <div className="popup__content">
+          <div className="popup__left">
+            <img
+              className="popup__img"
+              src={require("../src/img/nat-8.jpg")}
+              alt="Tour photo"
+            />
+            <img
+              className="popup__img"
+              src={require("../src/img/nat-9.jpg")}
+              alt="Tour photo"
+            />
+          </div>
+          <div className="popup__right">
+            <a href="#section-tours" className="popup__close">
+              &times;
+            </a>
+            <h2 className="heading-secondary u-margin-bottom-small">
+              Start booking now
+            </h2>
+            <h3 className="heading-tertiary u-margin-bottom-small">
+              Important &ndash; Please read these terms before booking
+            </h3>
+            <p className="popup__text">
+              Lorem ipsum dolor sit amet. Non accusamus ducimus ut aspernatur
+              temporibus eos eaque unde et labore consequatur quo Quis fugiat
+              cumque vel ratione porro! A voluptatum molestias ex quis eligendi
+              temporibus sint sed labore temporibus. Vel earum quia ab
+              aspernatur blanditiis sed quia consequuntur sed blanditiis
+              consequuntur vel possimus impedit et voluptas unde. Sit quidem
+              mollitia aut corrupti provident est omnis explicabo. Sit dolores
+              neque est eligendi eaque est facilis blanditiis repellendus eius
+              et nihil galisum. Id modi laboriosam aut maxime minus et
+              voluptatem tenetur ut delectus provident hic exercitationem sunt
+              aut voluptas facilis. consequuntur vel possimus impedit et
+              voluptas unde. Sit quidem mollitia aut corrupti provident est
+              omnis explicabo. Sit dolores neque est eligendi eaque est facilis
+              blanditiis repellendus eius et nihil galisum. Id modi laboriosam
+              aut maxime minus et voluptatem tenetur ut delectus provident hic
+              exercitationem sunt aut voluptas facilis. consequuntur vel
+              possimus impedit et voluptas unde.
+            </p>
+            <a href="#" className="btn btn--green">
+              Book now
+            </a>
+          </div>
+        </div>
+      </div>
       {/* <section className="grid-test">
         <div className="row">
           <div className="col-1-of-2">Col 1 of 2</div>
