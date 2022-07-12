@@ -2,19 +2,31 @@
   &__checkbox {
     display: none;
   }
+
   &__button {
     background-color: $color-white;
     height: 7rem;
     width: 7rem;
+    border-radius: 50%;
     position: fixed;
     top: 6rem;
     right: 6rem;
-    border-radius: 50%;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
     text-align: center;
     cursor: pointer;
+
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
+
   &__background {
     height: 6rem;
     width: 6rem;
@@ -25,11 +37,21 @@
     background-image: radial-gradient(
       $color-primary-light,
       $color-primary-dark
-    );
+    ); // it starts in the middle of the element and grows in every direction
     z-index: 1000;
     transition: transform 0.8s;
-    // transform: scale(80);
+
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
+
   &__nav {
     height: 100vh;
 
@@ -40,26 +62,34 @@
     opacity: 0;
     width: 0;
     transition: all 0.8s;
+
+    // & > * {
+    //   opacity: none;
+    //   visibility: hidden;
+    // }
   }
+
   &__list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absolute-center;
     list-style: none;
     text-align: center;
     width: 100%;
+    @include respond(phone) {
+      width: 90%;
+    }
   }
+
   &__item {
     margin: 1rem;
   }
+
   &__link {
     &:link,
     &:visited {
-      display: inline-block;
-      padding: 1rem 2rem;
+      display: inline-block; // if not, padding and hover transform don't work
       font-size: 3rem;
       font-weight: 300;
+      padding: 1rem 2rem;
       color: $color-white;
       text-decoration: none;
       text-transform: uppercase;
@@ -69,20 +99,24 @@
         transparent 50%,
         $color-white 50%
       );
-      background-size: 220%;
+      background-size: 230%;
       transition: all 0.4s;
-      span {
-        margin-right: 1.5rem;
-        display: inline-block;
-      }
     }
+
     &:hover,
     &:active {
       background-position: 100%;
       color: $color-primary;
       transform: translateX(1rem);
     }
+
+    span {
+      margin-right: 1.5rem;
+      display: inline-block;
+    }
   }
+
+  // FUNCIONALITY
   &__checkbox:checked ~ &__background {
     transform: scale(80);
   }
@@ -93,6 +127,12 @@
     top: 0;
   }
 
+  &__checkbox:checked ~ &__nav > * {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // MENU ICON
   &__icon {
     position: relative;
     margin-top: 3.5rem;
@@ -101,8 +141,9 @@
     &::after {
       width: 3rem;
       height: 2px;
-      background-color: $color-grey-dark-3;
+      background-color: $color-grey-dark-2;
       display: inline-block;
+      transition: all 0.2s;
     }
 
     &::before,
@@ -110,8 +151,8 @@
       content: "";
       position: absolute;
       left: 0;
-      transition: all 0.2s;
     }
+
     &::before {
       top: -0.8rem;
     }
@@ -119,21 +160,25 @@
       top: 0.8rem;
     }
   }
+
   &__button:hover &__icon::before {
     top: -1rem;
   }
   &__button:hover &__icon::after {
     top: 1rem;
   }
+
   &__checkbox:checked + &__button &__icon {
     background-color: transparent;
   }
+
+  // CROSS ICON
   &__checkbox:checked + &__button &__icon::before {
-    top: 0;
     transform: rotate(135deg);
+    top: 0;
   }
   &__checkbox:checked + &__button &__icon::after {
-    top: 0;
     transform: rotate(-135deg);
+    top: 0;
   }
 }

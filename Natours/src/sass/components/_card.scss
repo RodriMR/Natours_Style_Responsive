@@ -1,26 +1,29 @@
 .card {
-  //Functionality
-  perspective: 150rem;
-  -moz-perspective: 150rem;
-
+  perspective: 150rem; // more dramatic to lower values. always use high values
+  -moz-perspective: 150rem; // for motzilla browser
   position: relative;
-  height: 52rem;
+  height: 52rem; // to avoid this to colapse when the content is in position absolute
+
   &__side {
+    background-color: $color-white;
     height: 52rem;
-    transition: all 0.8s;
+    transition: all 0.5s ease;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden; // hides the back part of element
     border-radius: 3px;
-    overflow: hidden;
-    box-shadow: $shadow-15;
+    overflow: hidden; // if not, the image insidewill cover the border radius
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
     &--front {
       background-color: $color-white;
     }
+
     &--back {
       transform: rotateY(180deg);
+
       &-1 {
         background-image: linear-gradient(
           to right bottom,
@@ -28,6 +31,7 @@
           $color-secondary-dark
         );
       }
+
       &-2 {
         background-image: linear-gradient(
           to right bottom,
@@ -35,6 +39,7 @@
           $color-primary-dark
         );
       }
+
       &-3 {
         background-image: linear-gradient(
           to right bottom,
@@ -46,26 +51,19 @@
   }
 
   &:hover &__side--front {
-    -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
-    overflow: hidden;
-    backface-visibility: hidden;
   }
+
   &:hover &__side--back {
     transform: rotateY(0);
-    overflow: hidden;
-    backface-visibility: hidden;
   }
-  //Front Side Styling
+
   &__picture {
     background-size: cover;
     height: 23rem;
-    background-blend-mode: screen;
+    background-blend-mode: screen; // not supported by IE or Edge
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-
     &--1 {
       background-image: linear-gradient(
           to right bottom,
@@ -73,20 +71,17 @@
           $color-secondary-dark
         ),
         url(../../img/nat-5.jpg);
-      backface-visibility: hidden;
-      overflow: hidden;
     }
+
     &--2 {
-      background-image: url(../../img/nat-6.jpg);
       background-image: linear-gradient(
           to right bottom,
           $color-primary-light,
           $color-primary-dark
         ),
-        url(../../img/nat-5.jpg);
-      backface-visibility: hidden;
-      overflow: hidden;
+        url(../../img/nat-4.jpg);
     }
+
     &--3 {
       background-image: linear-gradient(
           to right bottom,
@@ -94,8 +89,6 @@
           $color-tertiary-dark
         ),
         url(../../img/nat-7.jpg);
-      backface-visibility: hidden;
-      overflow: hidden;
     }
   }
 
@@ -103,17 +96,18 @@
     font-size: 2.8rem;
     font-weight: 300;
     text-transform: uppercase;
+    text-align: right;
     color: $color-white;
     position: absolute;
     top: 12rem;
     right: 2rem;
-    text-align: right;
     width: 75%;
   }
 
   &__heading-span {
     padding: 1rem 1.5rem;
-    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; // for padding to be applied not only arround the text but also on line-break
     &--1 {
       background-image: linear-gradient(
         to right bottom,
@@ -136,12 +130,13 @@
       );
     }
   }
+
   &__details {
     padding: 3rem;
     ul {
+      margin: 0 auto;
       list-style: none;
       width: 80%;
-      margin: auto auto;
       li {
         text-align: center;
         font-size: 1.5rem;
@@ -152,21 +147,17 @@
       }
     }
   }
-  //Back Side Styling
 
   &__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absolute-center;
     width: 90%;
     text-align: center;
   }
 
   &__price-box {
     text-align: center;
-    margin-bottom: 8rem;
     color: $color-white;
+    margin-bottom: 8rem;
   }
 
   &__price-only {
@@ -177,5 +168,80 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  // hover:none is the condition to recognise touch devices (the oposite would be hover:hover)
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      background-color: $color-white;
+      height: auto;
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden; // if not, the image insidewill cover the border radius
+      box-shadow: none;
+      border-radius: 0 0 3px 3px;
+
+      &--front {
+        background-color: $color-white;
+      }
+
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        &-1 {
+          background-image: linear-gradient(
+            to right bottom,
+            $color-secondary-light,
+            $color-secondary-dark
+          );
+        }
+
+        &-2 {
+          background-image: linear-gradient(
+            to right bottom,
+            $color-primary-light,
+            $color-primary-dark
+          );
+        }
+
+        &-3 {
+          background-image: linear-gradient(
+            to right bottom,
+            $color-tertiary-light,
+            $color-tertiary-dark
+          );
+        }
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }

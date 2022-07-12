@@ -4,34 +4,34 @@
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
-    transition: all 0.2s;
+    border-radius: 10rem;
+    transition: all 0.2s; /* transitions always goes on the initial state */
     position: relative;
     font-size: $default-font-size;
-    //Change for the <button> element
     border: none;
     cursor: pointer;
   }
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /* x-shadow, y-shadow, blur-size, color */
     &::after {
-      transform: scalex(1.4) scaleY(1.6);
+      transform: scaleX(1.4) scaleY(1.6); /* Resize element */
       opacity: 0;
     }
   }
+
   &:active,
-  &focus {
-    outline: none;
-    transform: translateY(-1px);
+  &:focus {
+    transform: translate(1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
+
   &--white {
     background-color: $color-white;
-    color: $color-grey-dark;
+    color: $color-grey-dark-1;
     &::after {
       background-color: $color-white;
     }
@@ -44,10 +44,11 @@
       background-color: $color-primary;
     }
   }
+
   &::after {
     content: "";
     display: inline-block;
-    height: 100%;
+    height: 100%; /* pseudo-elements are treated like childs of the element */
     width: 100%;
     border-radius: 10rem;
     position: absolute;
@@ -58,8 +59,8 @@
   }
 
   &--animated {
-    animation: moveInButton 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards;
+    animation: moveInBottom 0.5s ease-out 0.75s; /* name, duration, timing-function, delay */
+    animation-fill-mode: backwards; /* applies animation 0% styles until animation starts */
   }
 }
 
@@ -71,16 +72,19 @@
     display: inline-block;
     text-decoration: none;
     border-bottom: 1px solid $color-primary;
-    padding: 3px;
+    padding: 3px; // so small that it won't really change. It's not worth to declare with rem unit.
     transition: all 0.2s;
   }
+
   &:hover {
     background-color: $color-primary;
     color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
     transform: translateY(-2px);
   }
+
   &:active {
-    transform: translateY(0);
+    transform: translate(1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 }

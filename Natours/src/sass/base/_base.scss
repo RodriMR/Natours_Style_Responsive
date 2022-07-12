@@ -3,12 +3,37 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: inherit; /* GP - It will inherit body style */
 }
+
+/* Root style, reference for REM unit */
 html {
-//This defines what 1 rem is.
-  font-size: 62.5%;
+  // 1rem setup
+  font-size: 62.5%; /* GP - 10px (what we want) * 16px (default root-font-size) / 100 */
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12px -> 12/16
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 9px -> 9/16
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px -> 8/16
+  }
 }
+
 body {
   box-sizing: border-box;
+  padding: 3rem; /* 30px / 10px (root-font-size) = 3 rem */
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
 }

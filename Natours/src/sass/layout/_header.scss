@@ -1,17 +1,47 @@
 .header {
-  height: 95vh;
+  position: relative;
+  height: 85vh; /* 95% of viewport height */
   background-image: linear-gradient(
       to right bottom,
-
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(../../img/hero.jpg);
-  background-size: cover;
+    url(../../img/hero-small.jpg);
+  background-size: cover; /* fits img to the box */
   background-position: top;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative;
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    height: 95vh; /* 95% of viewport height */
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 75vh,
+      0 100%
+    ); // Not supported by IE or Edge
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 75vh,
+      0 100%
+    ); // top-left | top-right | bottom-right | bottom-left
+  }
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2 /* for safari */) and (min-width: 37.5em),
+    only screen and (min-width: 2000px) {
+    //dots per inch
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../../img/hero.jpg);
+  }
+
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
 
   &__logo-box {
     position: absolute;
@@ -23,15 +53,14 @@
     height: 3.5rem;
   }
 
-  &__logo:hover {
-    opacity: 0.6;
-  }
-
   &__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(
+      -50%,
+      -50%
+    ); /* translates the element over x and y axis according to the element's messures */
     text-align: center;
   }
 }

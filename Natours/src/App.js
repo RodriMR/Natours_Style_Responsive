@@ -508,17 +508,7 @@ function App() {
               temporibus sint sed labore temporibus. Vel earum quia ab
               aspernatur blanditiis sed quia consequuntur sed blanditiis
               consequuntur vel possimus impedit et voluptas unde. Sit quidem
-              mollitia aut corrupti provident est omnis explicabo. Sit dolores
-              neque est eligendi eaque est facilis blanditiis repellendus eius
-              et nihil galisum. Id modi laboriosam aut maxime minus et
-              voluptatem tenetur ut delectus provident hic exercitationem sunt
-              aut voluptas facilis. consequuntur vel possimus impedit et
-              voluptas unde. Sit quidem mollitia aut corrupti provident est
-              omnis explicabo. Sit dolores neque est eligendi eaque est facilis
-              blanditiis repellendus eius et nihil galisum. Id modi laboriosam
-              aut maxime minus et voluptatem tenetur ut delectus provident hic
-              exercitationem sunt aut voluptas facilis. consequuntur vel
-              possimus impedit et voluptas unde.
+              mollitia aut corrupti provident est omnis explicabo.
             </p>
             <a href="#" className="btn btn--green">
               Book now
